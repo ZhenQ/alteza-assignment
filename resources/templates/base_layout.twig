@@ -1,0 +1,28 @@
+<html>
+    <header>
+        <title>Alteza Assignment</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    </header>
+    <body>
+
+    <h1 class="text-5xl border p-2"><a href="/" class="text-3xl">Alteza assesment</a></h1>
+
+    <div class="flex flex-row h-full">
+        <div class="flex flex-col flex-wrap w-full">
+            <div class="w-1/6 border-r-2 p-2 h-full">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/articles">Add Article</a></li>
+                    <li><a href="/users">Manage Users</a></li>
+                </ul>
+            </div>
+            <div class="w-5/6 p-2">
+                <dl>
+                    {% block content %}
+                    {% endblock %}
+                </dl>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
