@@ -3,25 +3,22 @@
 namespace App\Controllers;
 
 
+use App\Lib\Request;
+use App\Models\User;
+
 class AuthController
 {
-    public function login()
+    public function login(Request $request)
     {
-        echo 'login page';
-    }
+        $name = $request->get('name');
 
-    public function register()
-    {
-        // TODO
-    }
+        $user = (new User())->query("SELECT * FROM Users WHERE name = '$name'")->fetch();
 
-    public function doLogin(String $username, String $password)
-    {
-        // TODO
-    }
+        if (password_verify($request->get('password'), $user['password'])) {
+            //User sign in and redirect
+        }
 
-    public function doRegister(String $username, String $password)
-    {
-        // TODO
+        http_response_code(401);
+        die('Unauthorized');
     }
 }

@@ -25,6 +25,7 @@ class UserController extends Controller
     {
         (new User())->create([
             'name' => $request->get('name'),
+            'password' => password_hash($request->get('password'), PASSWORD_BCRYPT),
             'role_id' => $request->get('role_id'),
         ]);
 

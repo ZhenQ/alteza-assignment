@@ -1,10 +1,12 @@
 <?php
 
-use App\Lib\Router;
-
+use App\Controllers\AuthController;
 use App\Controllers\ArticleController;
 use App\Controllers\IndexController;
 use App\Controllers\UserController;
+
+use App\Lib\Router;
+
 
 $router = new Router();
 
@@ -21,3 +23,6 @@ $router->post('/users/update', [new UserController, 'update']);
 $router->get('/articles', [new ArticleController, 'create']);
 $router->get('/articles/:articleId', [new ArticleController, 'show']);
 $router->post('/articles', [new ArticleController, 'store']);
+
+//auth
+$router->post('/login', [new AuthController, 'login']);

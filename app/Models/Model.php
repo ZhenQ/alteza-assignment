@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use PDO;
+use PDOStatement;
 
 abstract class Model
 {
@@ -40,6 +41,10 @@ abstract class Model
         return $stmt->fetchAll();
     }
 
+    /**
+     * @param array $fields
+     * @return bool
+     */
     public function create(array $fields): bool
     {
         $keys = array_keys($fields);
@@ -58,6 +63,11 @@ abstract class Model
         return $stmt->execute();
     }
 
+    /**
+     * @param int $id
+     * @param array $fields
+     * @return bool
+     */
     public function update(int $id, array $fields): bool
     {
         $keys = array_keys($fields);
@@ -75,5 +85,17 @@ abstract class Model
         }
 
         return $stmt->execute();
+    }
+
+    /**
+     * @param string $query
+     * @return PDOStatement
+     */
+    public function query(string $query): PDOStatement
+    {
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
     }
 }
