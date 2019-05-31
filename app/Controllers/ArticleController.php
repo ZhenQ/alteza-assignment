@@ -20,19 +20,17 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         (new Article())->create([
-            'name' => $request->get('name'),
             'title' => $request->get('title'),
             'body' => $request->get('body'),
             'user_id' => $request->get('user_id'),
         ]);
 
-        $this->create();
+        $this->create($request);
     }
 
     public function update(Request $request): bool
     {
         return (new article())->update(1, [
-            'name' => $request->get('name'),
             'title' => $request->get('role_id'),
             'body' => $request->get('body'),
         ]);

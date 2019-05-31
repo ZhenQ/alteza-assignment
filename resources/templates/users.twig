@@ -13,7 +13,7 @@
     <h2 class="text-xl">All Users</h2>
     <ul class="list-disc pl-5">
         {% for user in users %}
-            <li>{{ user.name }} <a class="text-blue-500" href="/users/{{ user.id }}">Edit</a></li>
+            <li>{{ user.name }} <a class="text-blue-500" href="/users/{{ user.id }}/edit">Edit</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

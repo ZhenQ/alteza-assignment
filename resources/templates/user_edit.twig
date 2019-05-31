@@ -1,0 +1,13 @@
+{% extends 'base_layout.twig' %}
+
+{% block content %}
+    <h2 class="text-3xl font-bold">User #{{ user.id }} - {{ user.name }}</h2>
+    <form method="post" class="border p-2" action="/users/update">
+        <label>Name <input class="border" type="text" name="name" value="{{ user.name }}"/></label>
+        <div class="mt-2">
+            <label class="mr-3">User <input type="radio" name="role_id" value="1" {% if user.role_id == 1 %} checked="checked" {% endif %}></label>
+            <label>Admin <input type="radio" name="role_id" value="2" {% if user.role_id == 2 %} checked="checked" {% endif %}></label>
+        </div>
+        <input class="bg-green-500 py-2 px-4 mt-2" type="submit" value="Update User">
+    </form>
+{% endblock %}

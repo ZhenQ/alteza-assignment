@@ -14,9 +14,11 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(Request $request, array $params)
+    public function edit(Request $request, array $params)
     {
-        echo json_encode((new User())->get($params['userId']));
+        echo $this->twig->load('user_edit.twig')->render([
+            'user' => (new User())->get($params['userId'])[0],
+        ]);
     }
 
     public function store(Request $request)
@@ -31,9 +33,11 @@ class UserController extends Controller
 
     public function update(Request $request): bool
     {
-        return (new User())->update(1, [
+        (new User())->update(1, [
             'name' => $request->get('name'),
             'role_id' => $request->get('role_id'),
         ]);
+
+        $this->index();
     }
 }

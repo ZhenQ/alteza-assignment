@@ -3,8 +3,8 @@
 {% block content %}
     <dl>
         {% for article in articles %}
-            <dd>{{ article.title }} </dd>
-            <dt>{{ article.body }}</dt>
+            <dd class="text-xl font-bold">{{ article.title }} </dd>
+            <dt class="mb-5">{{ article.body }}</dt>
         {% endfor %}
     </dl>
 {% endblock %}
