@@ -7,7 +7,6 @@ use App\Lib\Request;
 
 class Auth implements Middleware
 {
-
     /**
      * @param Request $request
      * @return mixed

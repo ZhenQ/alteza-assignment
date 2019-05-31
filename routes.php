@@ -1,8 +1,8 @@
 <?php
 
-use App\Controllers\ArticleController;
 use App\Lib\Router;
 
+use App\Controllers\ArticleController;
 use App\Controllers\IndexController;
 use App\Controllers\UserController;
 
